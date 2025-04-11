@@ -17,8 +17,8 @@ class ModelTrainer:
     def initiate_model_trainer(self, train_arr, test_arr):
         print("Simulating model training...")
         print("Training data shape:", len(train_arr))
-        print("Testing data shape:", len(test_arr)) 
-
+        print("Testing data shape:", len(test_arr))
+        
 # Dummy class to simulate logging for clarity in notebook
 
 class logging:
