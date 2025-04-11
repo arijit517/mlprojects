@@ -2,8 +2,25 @@
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
+
+class ModelTrainerConfig:
+    def __init__(self):
+        # You can add any configuration parameters here
+        self.some_config = "default"
+
+class ModelTrainer:
+    def __init__(self, config=None):
+        self.config = config or ModelTrainerConfig()
+
+    def initiate_model_trainer(self, train_arr, test_arr):
+        print("Simulating model training...")
+        print("Training data shape:", len(train_arr))
+        print("Testing data shape:", len(test_arr)) 
 
 # Dummy class to simulate logging for clarity in notebook
+
 class logging:
     @staticmethod
     def info(msg):
@@ -48,7 +65,14 @@ class DataIngestion:
             raise CustomException(e, "Mock sys info")
 
 # Instantiate and run the data ingestion process
-obj = DataIngestion()
-train_data_path, test_data_path = obj.initiate_data_ingestion()
-(train_data_path, test_data_path)
+if __name__=="__main__":
+    obj = DataIngestion()
+    train_data_path, test_data_path = obj.initiate_data_ingestion()
+    (train_data_path, test_data_path)
+
+    data_transformation=DataTransformation()
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data_path,test_data_path)
+
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
                  
